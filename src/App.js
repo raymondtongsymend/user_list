@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import UserList from './userList';
 
 function App() {
+
+  const data = GetUserData();
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        User List
       </header>
+      <div>
+        This is the body
+      </div>
     </div>
   );
+}
+
+function GetUserData()
+{
+  const users = [
+    { name: "Joe", client: "Shaw", vendor: "Shaw Wireless" },
+    { name: "Bob", client: "Shaw", vendor: "Shaw Internet" },
+    { name: "Sam", client: "Rogers", vendor: "Rogers Cellular" }
+  ];
+
+  return users;
 }
 
 export default App;
