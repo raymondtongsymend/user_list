@@ -1,17 +1,17 @@
 import './App.css';
-import UserList from './userList';
+import UserList1 from './userList1';
 
 function App() {
 
-  const data = GetUserData();
+  const userDataList = GetUserData();
 
   return (
     <div className="App">
       <header className="App-header">
-        User List
+        User Lists
       </header>
       <div>
-        This is the body
+        <UserList1 userDataList={userDataList} />
       </div>
     </div>
   );
