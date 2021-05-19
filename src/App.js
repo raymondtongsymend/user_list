@@ -1,5 +1,6 @@
 import './App.css';
 import UserList1 from './userList1';
+import UserList2 from './userList2';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       </header>
       <div>
         <UserList1 userDataList={userDataList} />
+        <UserList2 userDataList={userDataList} />
       </div>
     </div>
   );
@@ -22,6 +24,7 @@ function GetUserData()
   const users = [
     { name: "Joe", client: "Shaw", vendor: "Shaw Wireless" },
     { name: "Bob", client: "Shaw", vendor: "Shaw Internet" },
+    { name: "Robert", client: "Shaw", vendor: "Shaw Internet" },
     { name: "Sam", client: "Rogers", vendor: "Rogers Cellular" }
   ];
 
