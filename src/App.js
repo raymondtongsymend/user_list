@@ -1,6 +1,7 @@
 import "./App.css";
 import UserList1 from "./userList1";
 import UserList2 from "./userList2";
+import UserList3 from "./userList3";
 
 const App = () => {
   const userDataList = GetUserData();
@@ -11,6 +12,7 @@ const App = () => {
       <div>
         <UserList1 userDataList={userDataList} />
         <UserList2 userDataList={userDataList} />
+        <UserList3 userDataList={userDataList} />
       </div>
     </div>
   );
