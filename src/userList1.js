@@ -1,19 +1,17 @@
 import React from "react";
 
-export default function UserList1(props) {
-  const userDataList = props.userDataList;
-
-  return (
-    <div>
-      <h1>User List 1 - Basic Unordered </h1>
-      <ul>
-        {userDataList.map((userData) => (
-          <li key={userData.name}>
-            Name: {userData.name}, Client: {userData.client}, Vendor:{" "}
-            {userData.vendor}
+const UserList1 = ({ userDataList }) => (
+  <div>
+    <ul>
+      {userDataList.map(
+        ({ name: userName, client: clientName, vendor: vendorName }) => (
+          <li key={userName}>
+            User: {userName}, Client: {clientName}, Vendor: {vendorName}
           </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+        )
+      )}
+    </ul>
+  </div>
+);
+
+export default UserList1;
