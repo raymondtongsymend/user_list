@@ -1,7 +1,7 @@
 import React from "react";
 import UserList2ClientBreakdown from "./userList2ClientBreakdown";
 
-export default function UserList2(props) {
+const UserList2 = (props) => {
   const userDataList = props.userDataList;
 
   // create a distinct list of clients
@@ -26,4 +26,6 @@ export default function UserList2(props) {
       </ul>
     </div>
   );
-}
+};
+
+export default UserList2;

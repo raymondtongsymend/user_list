@@ -1,7 +1,7 @@
 import React from "react";
 import UserList2VendorBreakdown from "./userList2VendorBreakdown";
 
-export default function UserList2ClientBreakdown(props) {
+const UserList2ClientBreakdown = (props) => {
   const client = props.client;
   const userDataList = props.userDataList;
 
@@ -28,4 +28,6 @@ export default function UserList2ClientBreakdown(props) {
       ))}
     </div>
   );
-}
+};
+
+export default UserList2ClientBreakdown;
