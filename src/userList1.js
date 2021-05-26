@@ -1,7 +1,7 @@
 import React from "react";
 
 const UserList1 = ({ userDataList }) => (
-  <div>
+  <>
     <h1>User List 1</h1>
     <ul>
       {userDataList.map(
@@ -12,7 +12,7 @@ const UserList1 = ({ userDataList }) => (
         )
       )}
     </ul>
-  </div>
+  </>
 );
 
 export default UserList1;

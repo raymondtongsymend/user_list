@@ -8,7 +8,7 @@ const UserList3 = ({ userDataList }) => {
 };
 
 const UserListTree = ({ clientObjectList }) => (
-  <div>
+  <>
     <h1>User List 3 - Using Composition</h1>
     {clientObjectList.map(({ name: clientName, vendors }) => (
       <ClientHeader clientName={clientName} key={clientName}>
@@ -21,7 +21,7 @@ const UserListTree = ({ clientObjectList }) => (
         ))}
       </ClientHeader>
     ))}
-  </div>
+  </>
 );
 
 const ClientHeader = (props) => (
