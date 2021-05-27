@@ -11,32 +11,42 @@ const UserListTree = ({ clientObjectList }) => (
   <>
     <h1>User List 3 - Using Composition</h1>
     {clientObjectList.map(({ name: clientName, vendors }) => (
-      <ClientHeader clientName={clientName} key={clientName}>
+      <Header headerText={clientName} size="large">
         {vendors.map(({ name: vendorName, users }) => (
-          <VendorHeader vendorName={vendorName} key={vendorName}>
-            {users.map(({ name }) => (
-              <UserInfo name={name} key={name} />
-            ))}
-          </VendorHeader>
+          <Header headerText={vendorName} size="medium">
+            <Header headerText="Users" size="small">
+              {users.map(({ name }) => (
+                <UserInfo name={name} key={name} />
+              ))}
+            </Header>
+          </Header>
         ))}
-      </ClientHeader>
+      </Header>
     ))}
   </>
 );
 
-const ClientHeader = (props) => (
-  <div key={props.clientName}>
-    <h2>Client: {props.clientName} </h2>
-    {props.children}
-  </div>
-);
+const Header = ({ headerText, size, className, children }) => {
+  let headerNode = "";
+  switch (size) {
+    case "small":
+      headerNode = <h3>{headerText}</h3>;
+      break;
+    case "medium":
+      headerNode = <h2>{headerText}</h2>;
+      break;
+    case "large":
+    default:
+      headerNode = <h1>{headerText}</h1>;
+      break;
+  }
 
-const VendorHeader = (props) => (
-  <div key={props.vendorName}>
-    <h3> Vendor: {props.vendorName} </h3>
-    {props.children}
-  </div>
-);
+  return (
+    <div className={className} key={headerText}>
+      {headerNode} {children}
+    </div>
+  );
+};
 
 const UserInfo = ({ name: userName }) => <p key={userName}>{userName}</p>;
 
