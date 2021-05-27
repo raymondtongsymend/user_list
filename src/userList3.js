@@ -27,23 +27,22 @@ const UserListTree = ({ clientObjectList }) => (
 );
 
 const Header = ({ headerText, size, className, children }) => {
-  let headerNode = "";
-  switch (size) {
-    case "small":
-      headerNode = <h3>{headerText}</h3>;
-      break;
-    case "medium":
-      headerNode = <h2>{headerText}</h2>;
-      break;
-    case "large":
-    default:
-      headerNode = <h1>{headerText}</h1>;
-      break;
-  }
+  const HeaderNode = () => {
+    switch (size) {
+      case "small":
+        return <h3>{headerText}</h3>;
+      case "medium":
+        return <h2>{headerText}</h2>;
+      case "large":
+      default:
+        return <h1>{headerText}</h1>;
+    }
+  };
 
   return (
     <div className={className} key={headerText}>
-      {headerNode} {children}
+      <HeaderNode />
+      {children}
     </div>
   );
 };
