@@ -18,8 +18,14 @@ const App = () => {
   );
 };
 
+export type UserData = {
+  name: string;
+  client: string;
+  vendor: String;
+};
+
 function GetUserData() {
-  const users = [
+  const users: Array<UserData> = [
     { name: "Joe", client: "Shaw", vendor: "Shaw Wireless" },
     { name: "Bob", client: "Shaw", vendor: "Shaw Internet" },
     { name: "Robert", client: "Shaw", vendor: "Shaw Internet" },

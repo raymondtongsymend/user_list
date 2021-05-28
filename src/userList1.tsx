@@ -1,6 +1,11 @@
-import React from "react";
+import { FunctionComponent } from "react";
+import { UserData } from "./App";
 
-const UserList1 = ({ userDataList }) => (
+type UserList1Props = {
+  userDataList: Array<UserData>;
+};
+
+const UserList1: FunctionComponent<UserList1Props> = ({ userDataList }) => (
   <>
     <h1>User List 1</h1>
     <ul>
