@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { GetClientObjects } from "./util/userDataListUtil";
 import { UserData } from "./App";
+import { HeaderSize, Header } from "./util/header";
 
 type UserList3Props = {
   userDataList: Array<UserData>;
@@ -13,10 +14,10 @@ const UserList3: FunctionComponent<UserList3Props> = ({ userDataList }) => {
     <>
       <h1>User List 3 - Using Composition</h1>
       {clientObjectList.map(({ name: clientName, vendors }) => (
-        <Header text={clientName} size="large" className="">
+        <Header text={clientName} size={HeaderSize.Large} className="">
           {vendors.map(({ name, users }) => (
-            <Header text={name} size="medium" className="">
-              <Header text="Users" size="small" className="">
+            <Header text={name} size={HeaderSize.Medium} className="">
+              <Header text="Users" size={HeaderSize.Small} className="">
                 {users.map(({ name }) => (
                   <UserInfo name={name} key={name} />
                 ))}
@@ -26,38 +27,6 @@ const UserList3: FunctionComponent<UserList3Props> = ({ userDataList }) => {
         </Header>
       ))}
     </>
-  );
-};
-
-type HeaderProps = {
-  text: string;
-  size: string;
-  className: string;
-};
-
-const Header: FunctionComponent<HeaderProps> = ({
-  text,
-  size,
-  className,
-  children,
-}) => {
-  const HeaderNode = () => {
-    switch (size) {
-      case "small":
-        return <h3>{text}</h3>;
-      case "medium":
-        return <h2>{text}</h2>;
-      case "large":
-      default:
-        return <h1>{text}</h1>;
-    }
-  };
-
-  return (
-    <div className={className} key={text}>
-      <HeaderNode />
-      {children}
-    </div>
   );
 };
 
