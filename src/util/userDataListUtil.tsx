@@ -1,25 +1,22 @@
-function GetClientObjects(userDataList) {
-  let clientObjectList = [];
+import { UserData } from "../App";
+
+function GetClientObjects(userDataList: Array<UserData>) {
+  let clientObjectList: Array<Client> = [];
 
   userDataList.forEach(
     ({ name: userName, client: userClient, vendor: userVendor }) => {
       // find or create client object
       let clientObject = clientObjectList.find(
         ({ name: clientName }) => clientName === userClient
-      );
-      if (clientObject == null) {
-        clientObject = { name: userClient, vendors: [] };
-        clientObjectList.push(clientObject);
-      }
+      ) ?? { name: userClient, vendors: [] };
+      clientObjectList.push(clientObject);
 
       // find or create vendor object
       let vendorObject = clientObject.vendors.find(
         ({ name: vendorName }) => vendorName === userVendor
-      );
-      if (vendorObject == null) {
-        vendorObject = { name: userVendor, users: [] };
-        clientObject.vendors.push(vendorObject);
-      }
+      ) ?? { name: userVendor as string, users: [] };
+
+      clientObject.vendors.push(vendorObject);
 
       // add user
       let userObject = { name: userName };
@@ -29,5 +26,19 @@ function GetClientObjects(userDataList) {
 
   return clientObjectList;
 }
+
+type Client = {
+  name: string;
+  vendors: Array<Vendor>;
+};
+
+type Vendor = {
+  name: string;
+  users: Array<User>;
+};
+
+type User = {
+  name: string;
+};
 
 export { GetClientObjects };
